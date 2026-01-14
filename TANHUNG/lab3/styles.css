@@ -1,0 +1,31 @@
+/* Reset & Chung */
+body { transition: background 0.3s, color 0.3s; font-family: sans-serif; margin: 0; overflow-x: hidden; }
+section { height: 100vh; padding: 100px 20px; border-bottom: 1px solid #ddd; }
+
+/* Bài 1: Dark Mode */
+.dark { background: #222; color: #fff; }
+
+/* Bài 2: Menu & Active */
+.navbar { position: fixed; top: 0; width: 100%; background: #eee; display: flex; align-items: center; padding: 10px; z-index: 1000; }
+.dark .navbar { background: #333; }
+.menu { list-style: none; display: flex; margin-left: 20px; }
+.menu li a { margin-right: 15px; text-decoration: none; color: #333; padding: 5px 10px; }
+.dark .menu li a { color: #fff; }
+.menu li a.active { background: orange; border-radius: 4px; color: white; }
+
+/* Bài 3: Fade-in animation */
+.box { width: 200px; height: 150px; background: #3498db; margin: 20px 0; color: white; display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(30px); transition: all 0.6s; }
+.box.show { opacity: 1; transform: translateY(0); }
+
+/* Bài 4: Jump button */
+.jump-btn { padding: 10px 20px; cursor: pointer; }
+.animate { animation: jump 0.4s ease; }
+@keyframes jump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Bài 5: Follow circle */
+.circle { position: fixed; width: 30px; height: 30px; border-radius: 50%; background: red; pointer-events: none; z-index: 9999; top: 0; left: 0; transition: transform 0.1s ease-out; }

@@ -1,0 +1,131 @@
+/* Màu sắc chủ đạo: Đen - Đỏ - Vàng (Luxury) */
+:root {
+    --gold: #FFD700;
+    --red: #D40000;
+    --dark-bg: #1a1a1a;
+    --card-bg: #262626;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    padding: 30px;
+}
+
+.lab-section {
+    background: var(--card-bg);
+    margin-bottom: 50px;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    text-align: center;
+}
+
+.title-lab {
+    color: var(--gold);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+/* Bài 1: Chữ chạy trái sang phải CHẬM */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    border: 2px solid var(--red);
+    padding: 15px 0;
+}
+
+.marquee-text {
+    white-space: nowrap;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--gold);
+    display: inline-block;
+    /* 15s là tốc độ chạy, tăng số này nếu muốn chậm hơn nữa */
+    animation: walkRight 15s linear infinite;
+}
+
+@keyframes walkRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Bài 2: Hộp xoay vòng vòng */
+.box-wrapper { padding: 40px; }
+.spinning-box {
+    width: 120px;
+    height: 120px;
+    background: var(--red);
+    margin: 0 auto;
+    border: 4px solid var(--gold);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(212, 0, 0, 0.5);
+    /* Animation xoay 360 độ liên tục */
+    animation: rotate360 5s linear infinite;
+}
+
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Bài 3: Ảnh hiện dần */
+.gallery { display: flex; gap: 20px; justify-content: center; }
+.fade-in-img {
+    width: 280px;
+    border-radius: 15px;
+    border: 2px solid #444;
+    opacity: 0;
+    animation: softFade 2.5s forwards;
+}
+
+@keyframes softFade {
+    to { opacity: 1; transform: translateY(-10px); }
+}
+
+/* Bài 4: Nút Mua Ngay */
+.btn-buy {
+    background: var(--red);
+    color: white;
+    padding: 15px 50px;
+    border: 2px solid var(--gold);
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: heartBeat 2s infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); box-shadow: 0 0 25px var(--red); }
+}
+
+/* Bài 5: Slider mượt */
+.slider-frame {
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 5px solid var(--gold);
+    border-radius: 20px;
+}
+
+.slider-content {
+    display: flex;
+    width: 2400px;
+    animation: slideShow 12s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.slider-content img { width: 600px; height: 300px; object-fit: cover; }
+
+@keyframes slideShow {
+    0%, 20% { transform: translateX(0); }
+    25%, 45% { transform: translateX(-600px); }
+    50%, 70% { transform: translateX(-1200px); }
+    75%, 95% { transform: translateX(-1800px); }
+    100% { transform: translateX(0); }
+}
